@@ -38,17 +38,17 @@ int Train::getLength() {
     if (!currentCar->light) {
       currentCar->light = true;
       countOp++;
-    }
-    currentCar = currentCar->next;
-    countOp++;
-    totalCars++;
-
-    if (currentCar->light) {
+      currentCar = currentCar->next;
+      countOp++;
+      totalCars++;
+    } else {
       currentCar->light = false;
       countOp++;
       if (!first->light) {
         break;
       }
+      currentCar = currentCar->next;
+      countOp++;
     }
   }
 
