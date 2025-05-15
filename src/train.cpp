@@ -30,7 +30,7 @@ void Train::addCar(bool light) {
 }
 
 int Train::getLength() {
-countOp = 0;
+  countOp = 0;
   Car* current;
   while (true) {
     current = first;
@@ -50,7 +50,7 @@ countOp = 0;
       return total + 1;
     }
   }
-
+}
 int Train::getOpCount() {
   return countOp;
 }
