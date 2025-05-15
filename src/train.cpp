@@ -44,10 +44,7 @@ int Train::getLength() {
     countOp += 2;
   }
   currentCar->light = false;
-  if (!first->light) {
-    return totalCars + 1;
-  }
-  return -1;
+  return totalCars + 1;
 }
 
 int Train::getOpCount() {
