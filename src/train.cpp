@@ -40,7 +40,7 @@ int Train::getLength() {
       countOp++;
     }
     currentCar = currentCar->next;
-    countOp += 2;
+    countOp++;
     totalCars++;
 
     if (currentCar->light) {
