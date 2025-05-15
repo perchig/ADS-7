@@ -1,4 +1,4 @@
-// Copyright 2021 NNTU-CS
+ц// Copyright 2021 NNTU-CS
 #include "train.h"
 
 Train::Train() : countOp(0), first(nullptr) {}
@@ -37,6 +37,7 @@ int Train::getLength() {
   while (true) {
     if (!currentCar->light) {
       currentCar->light = true;
+      countOp++;
     }
     currentCar = currentCar->next;
     countOp += 2;
@@ -44,6 +45,7 @@ int Train::getLength() {
 
     if (currentCar->light) {
       currentCar->light = false;
+      countOP++;
       if (!first->light) {
         break;
       }
