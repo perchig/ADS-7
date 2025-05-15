@@ -31,22 +31,32 @@ void Train::addCar(bool light) {
 
 int Train::getLength() {
   countOp = 0;
+  if (!first) {
+    return 0;
+  }
+
   Car* currentCar = first;
-  int totalCars = 0;
-  bool start = currentCar->light;
-  currentCar->light = false;
+  int totalCars = 1;
+  bool originalLight = currentCar->light;
+  currentCar->light = !originalLight;
   countOp++;
 
-  currentCar = currentCar->next;
-  countOp++;
-  while (!currentCar->light) {
+  while (currentCar->next->light == originalLight) {
     currentCar = currentCar->next;
     totalCars++;
-    countOp += 2;
+    countOp++;
+    currentCar->light = !originalLight;
+    countOp++;
   }
-  first->light = start;
 
-  return totalCars + 1;
+  currentCar = first;
+  for (int i = 0; i < totalCars; i++) {
+    currentCar->light = originalLight;
+    currentCar = currentCar->next;
+    countOp++;
+  }
+
+  return totalCars;
 }
 
 int Train::getOpCount() {
