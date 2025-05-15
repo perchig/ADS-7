@@ -44,7 +44,7 @@ int Train::getLength() {
 
     if (currentCar->light) {
       currentCar->light = false;
-      if (!first->light) { 
+      if (!first->light) {
         break;
       }
     }
